@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../adventure-game"
+		},
+		{
+			"path": "../extreme-number-guess-challenge"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

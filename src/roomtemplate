@@ -1,0 +1,26 @@
+{
+    "Room": {
+      "name": "name",
+      "descr": "text",
+      "doors": [
+        {
+          "Door": {
+            "target": "RoomID",
+            "triggers": [
+              "trigger1"
+            ]
+          }
+        }
+      ],
+      "people": [
+        {
+          "Person": {
+            "name": "name",
+            "greeting": "hi",
+            "gift": "nothing",
+            "wants": "Nothing"
+          }
+        }
+      ]
+    }
+  }

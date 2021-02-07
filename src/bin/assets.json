@@ -1,0 +1,344 @@
+[
+
+    {
+        "name": "Main Room",
+        "descr": "Warm horizontal logs give a cabin feel. To the north is the front door, you can see flurries of snow through the window. To the west is a plain wooden door. To the east is a tall staircase. In the room you see Maxtro sitting by the Mahjong table and Bean reading a book on the couch. In the kitchen, the fridge gleams ominously.",
+        "doors": [
+            {
+                "target": 1,
+                "triggers": [
+                    "east", 
+                    "staircase",
+                    "e"
+                ]
+            }
+            ,
+            {
+                "target": 2,
+                "triggers": [
+                    "west",
+                    "w"
+                ]
+            }
+            ,
+            {
+                    "target": 5,
+                    "triggers": [ 
+                        "north",
+                        "n",
+                        "front door"
+                    ]
+                }
+            
+        ],
+        "people": [
+            {
+                "name": "Maxtro",
+                "greeting": "Mahjong?? Also I wish we had some ice cream, do you have any?",
+                "dialogue": [["bad", "That's not ice cream!"], ["good", "Awesome thanks! here's a pair of gloves I made, East South game?"], ["n", "Hmm, I think you can get some at ParMar Convenience store"]],
+                "gift": "gloves",
+                "wants": "ice cream" 
+            }
+            ,
+            {
+                "name": "Bean",
+                "greeting": "Eeeeeeeee, can you help me with my Astro Homework?",
+                "dialogue": [["bad", "Mmmmm, that's not it"], ["neptune", "Hey! That's it, thanks. Also, I found these goggles stuck between couch cushions"], ["y", "Which planet was first discovered by mathematical calculations, and not observation?"]],
+                "gift": "goggles",
+                "wants": "nothing" 
+            }
+            
+        ]
+        }
+    ,
+
+    {
+        "name": "The Slot",
+        "descr": "As you walk in the door, the faux gas lantern gives off an eerie glow, illuminating a cramped bunk bed. To the west is the door to the room. An sits on the floor, playing d&d.",
+        "doors": [
+            {
+                "target": 0,
+                "triggers": [
+                    "West", 
+                    "west",
+                    "w"
+                ]
+            }
+            
+            
+        ],
+        "people": [
+            {
+                "name": "An",
+                "greeting": "Hey, what's up?",
+                "dialogue": [],
+                "gift": "gloves",
+                "wants": "Nothing" 
+            }
+            
+        ]
+        }
+    ,
+    {
+        "name": "The Laundry Room",
+        "descr": "Pushing open the door, to the north you see a glass door, snow falling heavily outside. To the east is back to the Main room. There is a laundry machine and a shelf with some ski materials on it.",
+        "doors": [
+            {
+                "target": 0,
+                "triggers": [
+                    "East", 
+                    "east",
+                    "e",
+                    "Main Room",
+                    "main room"
+                ]
+            }
+            ,
+            {
+                "target": 6,
+                "triggers": [
+                    "North", 
+                    "north",
+                    "n",
+                    "outside",
+                    "Outside"
+                ]
+            }
+            
+            
+        ],
+        "people": []
+        }
+    ,
+    {
+        "name": "The Spring",
+        "descr": "You trudge through knee deep snow and come across a three screw caps to a large water sistern with a pipe coming out of it. You can go north, farther into the forest or west, towards a clearing.",
+        "doors": [
+            {
+                "target": 4,
+                "triggers": [
+                    "west",
+                    "w",
+                    "clearing"
+                ]
+            }
+            ,
+            {
+                "target": 9,
+                "triggers": [
+                    "north",
+                    "n",
+                    "forest"
+                ]
+            }
+            
+            
+        ],
+        "people": []
+        }
+    ,
+    {
+
+        "name": "Forest Clearing",
+        "descr": "You come across a clearing with a large Bear! The bear looks like it wants to eat you!",
+        "doors": [
+            {
+                "target": 5,
+                "triggers": [
+                    "Forest trail", 
+                    "trail",
+                    "east",
+                    "East",
+                    "east"
+                ]
+            }
+            ,
+            {
+                "target": 3,
+                "triggers": [
+                    "West", 
+                    "west",
+                    "w",
+                    "spring"
+                ]
+            }
+            
+            
+        ],
+        "people": [
+            {
+                "name": "Bear",
+                "greeting": "ROOAAR!",
+                "dialogue": [],
+                "gift": "gloves",
+                "wants": "Bacon" 
+            }
+            
+        ]
+        }
+    ,
+
+    {
+        "name": "The Forest",
+        "descr": "The trees surround you, the snow continues to fall heavily around you. You see a clearing to the east and the trail forks to the west and north. South of you is the front door to the cabin.",
+        "doors": [
+            {
+                "target": 4,
+                "triggers": [ 
+                    "clearing",
+                    "east",
+                    "e"
+                ]
+            }
+            ,
+            {
+                "target": 6,
+                "triggers": [ 
+                    "west",
+                    "w",
+                    "trail"
+                ]
+            }
+            ,
+            {
+                    "target": 9,
+                    "triggers": [ 
+                        "north",
+                        "n"
+                    ]
+                }
+                ,
+                {
+                        "target": 0,
+                        "triggers": [ 
+                            "s",
+                            "south",
+                            "door",
+                            "front",
+                            "cabin"
+                        ]
+                    }
+                    
+            
+        ],
+        "people": []
+        }
+    ,
+    {
+        "name": "The Car",
+        "descr": "A grey SUV is parked in the driveway. There are some tire chains lying in the snow next to it. The driveway is to the west, the door to the laundry room is to the south. To the east is a trail into the forest.",
+        "doors": [
+            {
+                "target": 7,
+                "triggers": [
+                    "road", 
+                    "west",
+                    "w"
+                ]
+            }
+            ,
+            {
+                "target": 5,
+                "triggers": [ 
+                    "east",
+                    "e",
+                    "trail"
+                ]
+            },
+            {
+                "target": 2,
+                "triggers": [ 
+                    "south",
+                    "s",
+                    "laundry room",
+                    "door"
+                ]
+            }
+            
+            
+        ],
+        "people": []
+        }
+    ,
+    {
+        "name": "Seneca Trail",
+        "descr": "The road streches out before you. To the north is the ParMar convience store, to the east is back towards the house.",
+        "doors": [
+            {
+                "target": 6,
+                "triggers": [
+                    "east", 
+                    "house",
+                    "back",
+                    "e"
+                ]
+            }
+            ,
+            {
+                "target": 8,
+                "triggers": [
+                    "north",
+                    "n",
+                    "parmar"
+                ]
+            }
+            
+            
+        ],
+        "people": []
+        }
+    ,
+    {
+        "name": "ParMar Convience Store",
+        "descr": "You stand in the fluorescent-lit convience store, UTZ chips on the shelf. You see the gallon buckets of ice cream in the freezer behind the cashier, Catherine. The doorway out is to the south",
+        "doors": [
+            {
+                "target": 7,
+                "triggers": [
+                    "s",
+                    "south",
+                    "door"
+                ]
+            }
+            
+            
+        ],
+        "people": [
+            {
+                "name": "Catherine",
+                "greeting": "Welcome to ParMar, how may I help you?",
+                "dialogue": [],
+                "gift": "Ice Cream",
+                "wants": "Nothing" 
+            }
+        
+        ]
+        }
+    ,
+    {
+        "name": "Rotten Stump",
+        "descr": "You come across a rotten stump in the forest, covered in toadstools. The trail forks to the west and south.",
+        "doors": [
+            {
+                "target": 5,
+                "triggers": [
+                    "west",
+                    "w"
+                ]
+            }
+            ,
+            {
+                "target": 3,
+                "triggers": [
+                    "south",
+                    "s"
+                ]
+            }
+            
+            
+        ],
+        "people": []
+        }
+    
+
+]

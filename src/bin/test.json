@@ -1,0 +1,63 @@
+[
+
+    {
+        "name": "Main Room",
+        "descr": "Warm horizontal logs give a cabin feel. To the north is the front door, you can see flurries of snow through the window. To the west is a plain wooden door. To the east is a tall staircase. In the room you see Maxtro sitting by the Mahjong table and Bean reading a book on the couch. In the kitchen, the fridge gleams silver",
+        "doors": [
+            {
+                "target": 1,
+                "triggers": [
+                    "east", 
+                    "staircase",
+                    "e"
+                ]
+            } 
+        ],
+        "people": [
+            {
+                "name": "Maxtro",
+                "greeting": "Mahjong??",
+                "dialogue": [""],
+                "gift": "gloves",
+                "wants": "Nothing" 
+            },
+            {
+                "name": "Bean",
+                "greeting": "Eeeeeeeee",
+                "dialogue": [""],
+                "gift": "goggles",
+                "wants": "Nothing" 
+            }
+            
+        ]
+        },
+
+    {
+        "name": "The Slot",
+        "descr": "As you walk in the door, the faux gas lantern gives off an eerie glow, illuminating a cramped bunk bed. To the west is the door to the room. An sits on the floor, playing d&d.",
+        "doors": [
+            {
+                "target": 0,
+                "triggers": [
+                    "West", 
+                    "west",
+                    "w"
+                ]
+            }
+            
+            
+        ],
+        "people": [
+            {
+                "name": "An",
+                "greeting": "Hey, what's up?",
+                "dialogue": [""],
+                "gift": "gloves",
+                "wants": "Nothing" 
+            }
+            
+        ]
+        }
+    
+
+]
