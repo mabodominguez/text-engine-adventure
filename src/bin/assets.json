@@ -33,7 +33,7 @@
         ],
         "people": [
             {
-                "name": "Maxtro",
+                "name": "maxtro",
                 "greeting": "Mahjong?? Also I wish we had some ice cream, do you have any?",
                 "dialogue": [["bad", "That's not ice cream!"], ["good", "Awesome thanks! here's a pair of gloves I made, East South game?"], ["n", "Hmm, I think you can get some at ParMar Convenience store"]],
                 "gift": "gloves",
@@ -41,7 +41,7 @@
             }
             ,
             {
-                "name": "Bean",
+                "name": "bean",
                 "greeting": "Eeeeeeeee, can you help me with my Astro Homework?",
                 "dialogue": [["bad", "Mmmmm, that's not it"], ["neptune", "Hey! That's it, thanks. Also, I found these goggles stuck between couch cushions"], ["y", "Which planet was first discovered by mathematical calculations, and not observation?"]],
                 "gift": "goggles",

@@ -102,9 +102,7 @@ pub mod stuff{
         pub progress: u8,
         pub at: RoomID,
         pub switch: bool,
-        pub dialogue_state: bool,
-        pub talk_to: Option<Person>
-
+        pub dialogue_state: bool
     }
 
     #[derive(PartialEq, Eq, Clone, Copy, Deserialize, Debug)]

@@ -107,35 +107,37 @@ fn take(world_state:&mut stuff::WorldState, object:String){ // add get rid of ob
     }
 }
 
-fn talk(person:&String, rooms:&Vec<stuff::Room>, world_state:&mut stuff::WorldState){
+fn talk<'a>(person:&String, rooms:&'a std::vec::Vec<text_engine::stuff::Room>, world_state:&mut stuff::WorldState)->Option<&'a stuff::Person>{
 
     match rooms[world_state.at.0].people.iter().find::<_>(|d|d.name.contains(person.as_str())) {
         Some(subject) => {
             println!("you are talking to {}, (leave) to end conversation", subject.name);
             println!("{} - {}", subject.name, subject.greeting);
-            world_state.talk_to = Some(subject);
             world_state.dialogue_state = true;
+            return Some(subject);
         }
         None => { println!("You can't talk to {}.", person);
+            return None;
         }
     }
 }
 
-fn dialogue(person:&stuff::Person, input:&String, world_state:&mut stuff::WorldState){
-    for i in person.dialogue.as_slice(){
-        if input.eq_ignore_ascii_case(person.dialogue[1][0].as_str()){ // if they get the right answer
-            println!("{}\n", person.dialogue[1][1]);
-        } else if input.eq_ignore_ascii_case(i[0].as_str()){
-            println!("{}\n", i[1]);
-        } else if input.eq_ignore_ascii_case("leave"){
-            world_state.dialogue_state = false;
-        } else {
-            println!("{}\n", person.dialogue[0][1]); // if they say something undefined
+fn dialogue(person:&stuff::Person, input:&mut String, world_state:&mut stuff::WorldState){
+    if input.eq_ignore_ascii_case(person.dialogue[1][0].as_str()){ // if they get the right answer
+        println!("{}\n", person.dialogue[1][1]);
+        return;
+    } else if input.eq_ignore_ascii_case("leave"){
+        world_state.dialogue_state = false;
+        return;
+    } else {
+        for i in person.dialogue.as_slice(){
+            if input.eq_ignore_ascii_case(i[0].as_str()){
+                println!("{}\n", i[1]);  
+                return;
+            } 
         }
-    }
-    
-       
-
+    } 
+    println!("{}\n", person.dialogue[0][1]); // if they say something undefined
     
 }
 
@@ -159,19 +161,18 @@ fn main() {
         progress: 0,
         at: stuff::RoomID(0),
         switch: false,
-        dialogue_state:false,
-        talk_to: None
+        dialogue_state:false
     };
     let rooms = deserialized_map;
     //let end_rooms = [stuff::RoomID(2), stuff::RoomID(3)];
     let end_rooms = [];
     let mut input = String::new();
 
-    //let mut at = stuff::RoomID(0);
+    let mut talk_to = None;
     let mut verb;
     let mut object;
     let mut iter;
-    //let input_arr:vec![];
+    let input_arr: Vec<&str>;
     let mut action:Result<Verb, ()>;
     let needs = vec![
         stuff::Item{name:"goggles", descr:"Shining duochrome green and purple, you can tell they protect your eyes well", wearable:true},
@@ -205,7 +206,18 @@ fn main() {
             io::stdin().read_line(&mut input).unwrap();
             let mut input = input.trim().to_lowercase();
             iter = input.split_whitespace();
-            // TODO: possibly use split here to get rid of words like "up, to, etc"
+            // input_arr = iter.collect();
+            
+            
+            // for i in 0..input_arr.len(){
+            //     match input_arr[i] {
+            //         "to" => input_arr.remove(i),
+            //         "up" =>input_arr.remove(i),
+            //          _ => ()
+            //     }
+            // }
+                
+            
 
             verb = match iter.next(){
                 Some(x)=>x,
@@ -215,9 +227,9 @@ fn main() {
                 Some(x)=>x,
                 None => ""
             };
-            //println!("{}", object);
+           
                 //input_arr.append(word);
-                action = str_to_verb(verb, object.to_string());
+            action = str_to_verb(verb, object.to_string());
                 //println!("{:?}", verb);
 
 
@@ -226,7 +238,7 @@ fn main() {
                 Ok(Verb::Pick(object)) => pick(&mut world_state, object),
                 Ok(Verb::Inventory) => display_inventory(&world_state),
                 Ok(Verb::Equip(object)) => equip(&mut world_state, object),
-                Ok(Verb::Talk(object)) => println!("You want to talk"),
+                Ok(Verb::Talk(object)) => talk_to=talk(&object, &rooms, &mut world_state),
                 Ok(Verb::Eat(object)) => break,
                 Ok(Verb::Give(object)) => println!("You want to give"),
                 Ok(Verb::Equipment) => display_equipment(&world_state),
@@ -238,9 +250,12 @@ fn main() {
             while world_state.dialogue_state{
                 input.clear();
                 io::stdin().read_line(&mut input).unwrap();
-                let input = input.trim().to_lowercase();
-
-                dialogue(person, input, world_state)
+                let mut input = input.trim().to_lowercase();
+                
+                match talk_to{
+                    Some(person) => dialogue(person, &mut input, &mut world_state),
+                    None => ()
+                }
 
             }
         }
