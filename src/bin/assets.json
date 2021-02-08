@@ -33,15 +33,17 @@
         ],
         "people": [
             {
-                "name": "maxtro",
+                "name": "MAXTRO",
+                "id" : 0,
                 "greeting": "Mahjong?? Also I wish we had some ice cream, do you have any?",
                 "dialogue": [["bad", "That's not ice cream!"], ["good", "Awesome thanks! here's a pair of gloves I made, East South game?"], ["n", "Hmm, I think you can get some at ParMar Convenience store"]],
                 "gift": "gloves",
-                "wants": "ice cream" 
+                "wants": "bucket" 
             }
             ,
             {
-                "name": "bean",
+                "name": "BEAN",
+                "id" : 1,
                 "greeting": "Eeeeeeeee, can you help me with my Astro Homework?",
                 "dialogue": [["bad", "Mmmmm, that's not it"], ["neptune", "Hey! That's it, thanks. Also, I found these goggles stuck between couch cushions"], ["y", "Which planet was first discovered by mathematical calculations, and not observation?"]],
                 "gift": "goggles",
@@ -69,11 +71,16 @@
         ],
         "people": [
             {
-                "name": "An",
-                "greeting": "Hey, what's up?",
-                "dialogue": [],
-                "gift": "gloves",
-                "wants": "Nothing" 
+                "name": "AN",
+                "id": 2,
+                "greeting": "Here, I have your ski coat, but first, the names of the songs in my playlist got all corrupted, can you help me figure out their names? Also because my phone is dumb, only tell me the names with no spaces or punctuation.",
+                "dialogue": [["bad", "Uh lol that's not it"],
+                            ["fireflies", "Fireflies, what a classic. Thanks! you got them all, here's your coat"], 
+                            ["y", "Ok, first one is CLSN GTM"], 
+                            ["closingtime", "Closing Time is on this playlist? ugh. Ok, next one is PNMN"],
+                            ["pianoman", "Piano Man, yes! Next one on the list is FRFLS"]],
+                "gift": "coat",
+                "wants": "nothing" 
             }
             
         ]
@@ -81,7 +88,7 @@
     ,
     {
         "name": "The Laundry Room",
-        "descr": "Pushing open the door, to the north you see a glass door, snow falling heavily outside. To the east is back to the Main room. There is a laundry machine and a shelf with some ski materials on it.",
+        "descr": "Pushing open the door, to the north you see a glass door, snow falling heavily outside. To the east is back to the Main room. There is a laundry machine and a hook with a scarf on it.",
         "doors": [
             {
                 "target": 0,
@@ -112,7 +119,7 @@
     ,
     {
         "name": "The Spring",
-        "descr": "You trudge through knee deep snow and come across a three screw caps to a large water sistern with a pipe coming out of it. You can go north, farther into the forest or west, towards a clearing.",
+        "descr": "You trudge through knee deep snow and come across a three screw caps to a large water sistern with a pipe coming out of it. A pair of ski boots are propped up against the pipe. You can go north, farther into the forest or west, towards a clearing.",
         "doors": [
             {
                 "target": 4,
@@ -140,7 +147,7 @@
     {
 
         "name": "Forest Clearing",
-        "descr": "You come across a clearing with a large Bear! The bear looks like it wants to eat you!",
+        "descr": "You come across a clearing with a large Bear! The bear looks like it wants to eat you! Behind the bear you can see faintly see a ski helmet",
         "doors": [
             {
                 "target": 5,
@@ -167,11 +174,12 @@
         ],
         "people": [
             {
-                "name": "Bear",
-                "greeting": "ROOAAR!",
-                "dialogue": [],
-                "gift": "gloves",
-                "wants": "Bacon" 
+                "name": "BEAR",
+                "id": 3,
+                "greeting": "ROOAAR! Give me bacon and or I'll EAT you!!",
+                "dialogue": [["bad", "Yum yum I love clueless college student for lunch"], ["good", "Mm yum, thanks. \n Suddenly you see that there are trails to the east and west. You grab the helmet before the bear notices you."]],
+                "gift": "helmet",
+                "wants": "bacon" 
             }
             
         ]
@@ -305,10 +313,13 @@
         ],
         "people": [
             {
-                "name": "Catherine",
-                "greeting": "Welcome to ParMar, how may I help you?",
-                "dialogue": [],
-                "gift": "Ice Cream",
+                "name": "CATHERINE",
+                "id": 4,
+                "greeting": "Welcome to ParMar, how may I help you? You can buy a (bucket) of Ice Cream  or \n (b) Bacon",
+                "dialogue": [["bad", "Sorry, I can't help you with that"], 
+                            ["bucket", "Here you go, enjoy your bucket of ice cream"],
+                            ["b", "Whelp, we're actually out of bacon, hehe"]],
+                "gift": "bucket",
                 "wants": "Nothing" 
             }
         

@@ -1,44 +1,5 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
 
-pub mod parse{
-    use std::io;
-    // We need the Write trait so we can flush stdout
-    use std::io::Write;
-
-    //use crate::stuff::WorldState;
-
-    #[derive(Debug, Clone)]
-    pub enum GrammarItem {
-        Verb(String),
-        Object(String),
-        Person(String)
-    } 
-
-    // pub fn parse(input:String, world_state:WorldState){
-    //     input.clear();
-    //         io::stdin().read_line(&mut input).unwrap();
-    //         let input = input.trim();
-    //         if let Some(door) = here.doors.iter().find(|d| d.triggers.contains(&input.to_string())) {
-    //             // #[std(borrow)]
-    //             // if let Some(msg) = &door.message {
-    //             //     println!("{}", msg);
-    //             // }
-    //             at = door.target;
-    //             break;
-    //         } else {
-    //             println!("You can't do that!");
-    //         }
-
-    }
-    
-
-
+// this provides all the structs needed for text-engine games
 pub mod stuff{
     use std::fmt;
     use serde::{Deserialize};
@@ -60,7 +21,7 @@ pub mod stuff{
     }
      
     
-    impl std::fmt::Display for Item { // probably change based on name
+    impl std::fmt::Display for Item {
         fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
             write!(f, "{}:{}", self.name, self.descr)
         }
@@ -69,6 +30,7 @@ pub mod stuff{
     #[derive(Deserialize, Debug, Clone)]
     pub struct Person{
         pub name: String,
+        pub id : PersonID,
         pub greeting: String,
         pub dialogue: Vec<Vec<String>>,
         pub gift: String,
@@ -87,9 +49,7 @@ pub mod stuff{
     #[derive(Deserialize, Debug)]
     pub struct Door {
         pub target: RoomID,
-        pub triggers: Vec<String>,
-        // pub message: Option<String>,
-        // condition: Option<Item>
+        pub triggers: Vec<String>
     }
 
     
@@ -107,6 +67,9 @@ pub mod stuff{
 
     #[derive(PartialEq, Eq, Clone, Copy, Deserialize, Debug)]
     pub struct RoomID( pub usize);
+
+    #[derive(PartialEq, Eq, Clone, Copy, Deserialize, Debug)]
+    pub struct PersonID( pub usize);
 
    pub fn check_win(world_state:&WorldState, needs:&Vec<Item>)->bool{
         for x in needs{
